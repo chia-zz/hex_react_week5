@@ -3,16 +3,18 @@ import { useState, useEffect, useRef } from "react";
 
 const NavbarData = {
   brand: {
-    title: "GreenGo",
+    title: "首頁",
     url: "/",
   },
   mainLinks: [
     { title: "首頁", url: "/" },
-    { title: "精選菜單", url: "/product" },
-    { title: "自由搭配", url: "/custom" },
-    { title: "關於綠果", url: "/about" },
-    { title: "綠果專欄", url: "/article" },
+    { title: "產品列表", url: "/product" },
+    { title: "購物車", url: "/cart" },
   ],
+  loginLink: {
+    title: "登入",
+    url: "/admin/login",
+  },
 };
 
 function Header() {
@@ -71,15 +73,12 @@ function Header() {
 
               {/* cart + login */}
               <div className="d-flex align-items-center gap-2">
-                <button
-                  type="button"
-                  className="btn btn-outline-gray-400 rounded-pill border-none"
+                <NavLink
+                  className="header__brand ft-en fw-semibold text-decoration-none"
+                  to={NavbarData.loginLink.url}
                 >
-                  <i className="bi bi-bag"></i>
-                </button>
-                <button className="btn btn-outline-primary-300 rounded-3">
-                  登入 / 註冊
-                </button>
+                  {NavbarData.loginLink.title}
+                </NavLink>
               </div>
             </div>
 

@@ -27,7 +27,7 @@ function LoginPage() {
       document.cookie = `hexToken=${token};expires=${new Date(expired)};`;
       // axios.defaults.headers.common["Authorization"] = token;
       toast.success("登入成功");
-      navigate("/products");
+      navigate("/admin");
     } catch (error) {
       toast.error(`登入失敗: ${error.response?.data.message}`);
       setIsAuth(false);
@@ -38,7 +38,7 @@ function LoginPage() {
     <>
       <ToastContainer />
       <div className="container login">
-        <h2>請先登入</h2>
+        <h2 className="text-sec-500">請先登入</h2>
         <form className="form-floating">
           <div className="form-floating mb-3">
             <input

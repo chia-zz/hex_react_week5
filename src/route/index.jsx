@@ -33,7 +33,7 @@ const routes = [
   // 後台
   {
     path: "/admin",
-    element: <AdmDashboard />,
+    element: <AdmProducts />,
     children: [
       { path: "products", element: <AdmProducts /> },
       { path: "*", element: <AdmNotFound404 /> },

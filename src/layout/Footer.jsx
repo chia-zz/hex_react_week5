@@ -1,9 +1,10 @@
 import { NavLink } from "react-router-dom";
-{
-  /* 間距待設計稿數值出來再做調整 */
-}
 
 function Footer() {
-  return <footer className="bg-primary-300 text-white">這是Footer</footer>;
+  return (
+    <footer className="container-fluid">
+      <h1>這是Footer</h1>
+    </footer>
+  );
 }
 export default Footer;
