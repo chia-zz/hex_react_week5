@@ -12,7 +12,7 @@ import AdmDashboard from "../assets/pages/admin/AdmDashboard.jsx";
 import AdmProducts from "../assets/pages/admin/AdmProducts.jsx";
 import AdmNotFound404 from "../assets/pages/admin/AdmNotFound404.jsx";
 
-const routes = [
+export const router = createHashRouter([
   // 前台
   {
     path: "/",
@@ -39,8 +39,6 @@ const routes = [
       { path: "*", element: <AdmNotFound404 /> },
     ],
   },
-];
-
-const router = createHashRouter(routes);
+]);
 
 export default router;

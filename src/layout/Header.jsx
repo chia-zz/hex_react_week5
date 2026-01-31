@@ -3,18 +3,15 @@ import { useState, useEffect, useRef } from "react";
 
 const NavbarData = {
   brand: {
-    title: "首頁",
+    title: "植想嶼你",
     url: "/",
   },
   mainLinks: [
     { title: "首頁", url: "/" },
-    { title: "產品列表", url: "/product" },
+    { title: "產品", url: "/product" },
     { title: "購物車", url: "/cart" },
+    { title: "後台", url: "/admin/login" },
   ],
-  loginLink: {
-    title: "登入",
-    url: "/admin/login",
-  },
 };
 
 function Header() {
@@ -51,11 +48,12 @@ function Header() {
             {/* desktop */}
             <div className="header__container d-none d-lg-flex">
               <NavLink
-                className="header__brand ft-en fw-semibold text-decoration-none"
+                className="header__brand fw-semibold text-decoration-none"
                 to={NavbarData.brand.url}
               >
                 {NavbarData.brand.title}
               </NavLink>
+
               <ul className="navbar-nav mb-0">
                 {NavbarData.mainLinks.map((link) => (
                   <li key={link.url}>
@@ -70,16 +68,6 @@ function Header() {
                   </li>
                 ))}
               </ul>
-
-              {/* cart + login */}
-              <div className="d-flex align-items-center gap-2">
-                <NavLink
-                  className="header__brand ft-en fw-semibold text-decoration-none"
-                  to={NavbarData.loginLink.url}
-                >
-                  {NavbarData.loginLink.title}
-                </NavLink>
-              </div>
             </div>
 
             {/* mobile */}
@@ -91,7 +79,7 @@ function Header() {
               >
                 <div className="mobile-container__header">
                   <NavLink
-                    className="header__brand ft-en fw-semibold text-decoration-none"
+                    className="header__brand  fw-semibold text-decoration-none"
                     to={NavbarData.brand.url}
                     onClick={closeMenu}
                   >
@@ -99,12 +87,6 @@ function Header() {
                   </NavLink>
 
                   <div className="d-flex align-items-center gap-2">
-                    <button
-                      type="button"
-                      className="btn btn-outline-gray-400 rounded-pill border-none"
-                    >
-                      <i className="bi bi-bag"></i>
-                    </button>
                     <button
                       type="button"
                       className="btn btn-outline-gray-400 rounded-pill border-none"
@@ -142,11 +124,7 @@ function Header() {
                     ))}
                   </nav>
 
-                  <div className="mobile-container__footer">
-                    <button className="btn btn-outline-primary-300 w-100 rounded-pill">
-                      登入 / 註冊
-                    </button>
-                  </div>
+                  <div className="mobile-container__footer"></div>
                 </div>
               </div>
             </div>
@@ -154,7 +132,7 @@ function Header() {
         </nav>
       </header>
 
-      {/* mobile 版開啟 dropdown 的遮罩 */}
+      {/* mobile 的遮罩 */}
       {/* 點背景就關閉選單 */}
       <div
         className={`mobile-overlay ${

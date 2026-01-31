@@ -1,4 +1,4 @@
 function NotFound404() {
-  return <div className="bg-primary-300 text-white">這是NotFound404</div>;
+  return <div className="text-primary-800">404 找不到內容</div>;
 }
 export default NotFound404;

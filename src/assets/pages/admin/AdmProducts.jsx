@@ -10,7 +10,7 @@ import {
   checkUserLogin,
   deleteProduct,
   adminLogout,
-} from "../../../api/Api";
+} from "../../../api/ApiAdmin";
 // 元件
 import LoadingSpinner from "../../../components/LoadingSpinner";
 import Pagination from "../../../components/Pagination";

@@ -307,43 +307,43 @@ $danger: $red !default;
 $light: $gray-100 !default;
 $dark: $gray-900 !default;
 
-$primary-50: #f4f6fb;
-$primary-100: #e9edf5;
-$primary-200: #ced9e9;
-$primary-300: #a3b8d6;
-$primary-400: #7192bf;
-$primary-500: #4f73a8;
-$primary-600: #3c5b8d;
-$primary-700: #324972;
-$primary-800: #2c4060;
-$primary-900: #2b3a55;
-$primary-950: #1b2436;
-$primary: $primary-500;
+$primary-50: #f5f8ed;
+$primary-100: #e8eed9;
+$primary-200: #d3dfb7;
+$primary-300: #b6ca8c;
+$primary-400: #9bb566;
+$primary-500: #83a04c;
+$primary-600: #617937;
+$primary-700: #4b5e2d;
+$primary-800: #3e4c28;
+$primary-900: #364126;
+$primary-950: #1b2310;
+$primary: $primary-800;
 
-$sec-50: #faf7f6;
-$sec-100: #f4edec;
-$sec-200: #ebdfdd;
-$sec-300: #dcc9c5;
-$sec-400: #c9ada7;
-$sec-500: #b08b83;
-$sec-600: #997169;
-$sec-700: #7f5d56;
-$sec-800: #6b4f49;
-$sec-900: #5b4641;
-$sec-950: #2f2320;
+$sec-50: #fef7ee;
+$sec-100: #feeed6;
+$sec-200: #fbd9ad;
+$sec-300: #f8b66b;
+$sec-400: #f59742;
+$sec-500: #f2781d;
+$sec-600: #e35e13;
+$sec-700: #bc4712;
+$sec-800: #963916;
+$sec-900: #793115;
+$sec-950: #411609;
 $secondary: $sec-600;
 
-$tert-50: #fbf7f1;
-$tert-100: #f5ecdf;
-$tert-200: #ebd6bd;
-$tert-300: #ddb892;
-$tert-400: #cf9668;
-$tert-500: #c57b4a;
-$tert-600: #b7673f;
-$tert-700: #985236;
-$tert-800: #7b4431;
-$tert-900: #64392a;
-$tert-950: #351c15;
+$tert-50: #fefce5;
+$tert-100: #fefac3;
+$tert-200: #fff189;
+$tert-300: #fee346;
+$tert-400: #fbd014;
+$tert-500: #ebb607;
+$tert-600: #cb8c03;
+$tert-700: #a26406;
+$tert-800: #864e0d;
+$tert-900: #714012;
+$tert-950: #422106;
 
 $success-light: #f2f7f3;
 $success-300: #9abba0;
@@ -351,7 +351,7 @@ $success-main: #4d7c58;
 $success-dark: #2e4e38;
 $success: $success-main;
 
-$accent: #84a98c;
+$accent: #2771a5;
 $error: #bc4749;
 $warning: #ffb340;
 
@@ -522,8 +522,21 @@ $spacers: (
 // scss-docs-start position-map
 $position-values: (
   0: 0,
+  10: 10%,
+  20: 20%,
+  30: 30%,
+  40: 40%,
   50: 50%,
+  60: 60%,
+  70: 70%,
+  80: 80%,
+  90: 90%,
   100: 100%,
+  110: 110%,
+  120: 120%,
+  130: 130%,
+  140: 140%,
+  150: 150%,
 ) !default;
 // scss-docs-end position-map
 

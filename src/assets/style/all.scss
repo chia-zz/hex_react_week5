@@ -16,12 +16,15 @@
 @import "../style/components/loadingSpinner";
 @import "../style/layout/header";
 @import "../style/layout/footer";
+@import "../style/home";
+@import "../style/productList";
 
 @import "../style/admLogin";
 
 html,
 body {
-  font-family: "Shippori Mincho", serif;
+  font-family: "Fira Sans", "Shippori Mincho", "Noto Serif TC", serif;
+  font-weight: 500;
   text-align: center;
   min-height: 100vh;
   background: url("/bg.jpg");
@@ -38,64 +41,4 @@ table {
 img {
   object-fit: contain;
   max-width: 100%;
-}
-
-// swiper 樣式
-.custom-swiper {
-  --swiper-navigation-color: #000000;
-  --swiper-navigation-size: 60px;
-}
-
-.custom-swiper .swiper-button-prev {
-  left: 0;
-}
-
-.custom-swiper .swiper-button-next {
-  right: 0;
-}
-
-.custom-swiper .swiper-button-prev,
-.custom-swiper .swiper-button-next {
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  padding: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  border-left: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow:
-    0 8px 12px 0 rgba(0, 0, 0, 0.3),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-}
-
-.custom-swiper .swiper-pagination {
-  bottom: 0px;
-}
-
-.custom-swiper .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background: #d4d4d4;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  border-left: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow:
-    0 2px 2px 0px rgba(0, 0, 0, 0.3),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  opacity: 0.5;
-  margin: 0 6px !important;
-}
-
-.custom-swiper .swiper-pagination-bullet-active {
-  background: #222325;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  border-left: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow:
-    0 2px 2px 0px rgba(0, 0, 0, 0.3),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-  opacity: 1;
-  width: 24px;
-  border-radius: 8px;
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import { adminSignin } from "../../../api/Api";
+import { adminSignin } from "../../../api/ApiAdmin";
 
 function LoginPage() {
   const navigate = useNavigate(); // 建立 navigate router

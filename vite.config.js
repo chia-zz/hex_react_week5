@@ -5,4 +5,11 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: process.env.NODE_ENV === "production" ? "/hex_react_week5/" : "/",
   plugins: [react()],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: ["color-functions", "import", "global-builtin"],
+      },
+    },
+  },
 });
