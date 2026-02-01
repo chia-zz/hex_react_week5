@@ -54,20 +54,40 @@ function Header() {
                 {NavbarData.brand.title}
               </NavLink>
 
-              <ul className="navbar-nav mb-0">
-                {NavbarData.mainLinks.map((link) => (
-                  <li key={link.url}>
+              <div className="home-nav">
+                <div className="home-container">
+                  {NavbarData.mainLinks.map((link) => (
                     <NavLink
+                      key={link.url}
                       to={link.url}
                       className={({ isActive }) =>
-                        `header__link ${isActive ? "header__link--active" : ""}`
+                        `home-btn ${isActive ? "home-btn--active" : ""}`
                       }
                     >
-                      <span className="header__link-text">{link.title}</span>
+                      {link.title}
                     </NavLink>
-                  </li>
-                ))}
-              </ul>
+                  ))}
+                  <svg
+                    className="home-outline"
+                    overflow="visible"
+                    width="400"
+                    height="48"
+                    viewBox="0 0 400 48"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      className="home-rect"
+                      pathLength="100"
+                      x="0"
+                      y="0"
+                      width="400"
+                      height="48"
+                      fill="transparent"
+                      strokeWidth="5"
+                    />
+                  </svg>
+                </div>
+              </div>
             </div>
 
             {/* mobile */}

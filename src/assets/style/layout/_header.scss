@@ -50,13 +50,108 @@
 }
 
 // desktop 區
-.navbar-nav {
+// .navbar-nav {
+//   position: relative;
+//   display: flex;
+//   flex-direction: row;
+//   margin: 0;
+//   padding: 4px 16px;
+//   gap: 8px;
+//   background:
+//     linear-gradient(
+//       135deg,
+//       rgba(255, 255, 255, 0.9) 0%,
+//       rgba(255, 255, 255, 0.6) 100%
+//     ),
+//     linear-gradient(
+//       225deg,
+//       rgba(131, 160, 76, 0.1) 0%,
+//       rgba(131, 160, 76, 0.05) 100%
+//     );
+
+//   backdrop-filter: blur(16px) saturate(180%);
+//   border-radius: 50px;
+//   border: 1px solid rgba(255, 255, 255, 0.6);
+//   box-shadow:
+//     0 8px 32px rgba(131, 160, 76, 0.12),
+//     0 2px 8px rgba(131, 160, 76, 0.08),
+//     inset 0 1px 0 rgba(255, 255, 255, 0.8),
+//     inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+//   overflow: hidden;
+//   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+
+//   &:hover {
+//     background: linear-gradient(135deg, rgba(255, 255, 255, 0.95));
+//     box-shadow:
+//       0 12px 40px rgba(131, 160, 76, 0.15),
+//       0 4px 12px rgba(131, 160, 76, 0.1),
+//       inset 0 1px 0 rgba(255, 255, 255, 0.9),
+//       inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+//   }
+// }
+
+// .navbar-nav li {
+//   position: relative;
+//   animation: navItemAppear 0.5s ease-in-out;
+//   animation-delay: 0.05s;
+// }
+
+// @keyframes navItemAppear {
+//   from {
+//     opacity: 0;
+//     transform: translateY(-10px);
+//   }
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+// .header__link {
+//   position: relative;
+//   display: block;
+//   padding: 8px 12px;
+//   text-decoration: none;
+//   border-radius: 40px;
+//   overflow: hidden;
+//   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+//   z-index: 1;
+// }
+
+// .header__link-text {
+//   position: relative;
+//   z-index: 5;
+//   color: $primary-800;
+//   transition: all 0.3s ease;
+// }
+
+// .header__link:hover {
+//   background: rgba(131, 160, 76, 0.4);
+//   box-shadow:
+//     inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
+//     inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+//   .header__link-text {
+//     color: $white;
+//     transform: translateY(-1px);
+//   }
+// }
+
+// .header__link.header__link--active {
+//   background: $primary-300;
+//   box-shadow:
+//     inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
+//     inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+//   pointer-events: none;
+
+//   .header__link-text {
+//     color: $white;
+//   }
+// }
+
+.home-nav {
   position: relative;
-  display: flex;
-  flex-direction: row;
-  margin: 0;
-  padding: 4px 16px;
-  gap: 8px;
+  width: 400px;
+  height: 48px;
   background:
     linear-gradient(
       135deg,
@@ -68,16 +163,13 @@
       rgba(131, 160, 76, 0.1) 0%,
       rgba(131, 160, 76, 0.05) 100%
     );
-
+  border-radius: 8px;
   backdrop-filter: blur(16px) saturate(180%);
-  border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.6);
   box-shadow:
     0 8px 32px rgba(131, 160, 76, 0.12),
     0 2px 8px rgba(131, 160, 76, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.8),
     inset 0 -1px 0 rgba(255, 255, 255, 0.2);
-  overflow: hidden;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
 
   &:hover {
@@ -87,157 +179,90 @@
       0 4px 12px rgba(131, 160, 76, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.9),
       inset 0 -1px 0 rgba(255, 255, 255, 0.3);
-  }
-}
-
-.navbar-nav li {
-  position: relative;
-  animation: navItemAppear 0.5s ease-in-out;
-  animation-delay: 0.05s;
-}
-
-@keyframes navItemAppear {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.header__link {
-  position: relative;
-  display: block;
-  padding: 8px 12px;
-  text-decoration: none;
-  border-radius: 40px;
-  overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1;
-}
-
-.header__link-text {
-  position: relative;
-  z-index: 5;
-  color: $primary-800;
-  transition: all 0.3s ease;
-}
-
-.header__link:hover {
-  background: rgba(131, 160, 76, 0.4);
-  box-shadow:
-    inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
-    inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
-  .header__link-text {
-    color: $white;
     transform: translateY(-1px);
   }
 }
 
-.header__link.header__link--active {
-  background: $primary-300;
-  box-shadow:
-    inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
-    inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
-  pointer-events: none;
-
-  .header__link-text {
-    color: $white;
-  }
-}
-
-.date-outline {
+.home-container {
   position: absolute;
   inset: 0;
-  pointer-events: none;
-}
-
-.date-rect {
-  stroke-dashoffset: 5;
-  stroke-dasharray: 0 0 11.5 40 10.5 40;
-  transition: 0.5s;
-  stroke: #fff;
-}
-
-.date-nav {
-  position: relative;
-  width: 400px;
-  height: 48px;
-}
-
-.date-container:hover .date-outline .date-rect {
-  transition: 999999s;
-  /* Must specify these values here as something *different* just so that the transition works properly */
-  stroke-dashoffset: 1;
-  stroke-dasharray: 0;
-}
-
-.date-container {
-  position: absolute;
-  inset: 0;
-  background: #3c5b8d;
+  background: $primary-200;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   border-radius: 8px;
   align-items: center;
   padding: 8px;
-  backdrop-filter: blur(16px) saturate(180%);
-  // border: 1px solid rgba(255, 255, 255, 0.6);
-  box-shadow:
-    0 8px 32px rgba(131, 160, 76, 0.12),
-    0 2px 8px rgba(131, 160, 76, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    inset 0 -1px 0 rgba(255, 255, 255, 0.2);
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
-  &:hover {
-    box-shadow:
-      0 12px 40px rgba(131, 160, 76, 0.15),
-      0 4px 12px rgba(131, 160, 76, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.5);
-  }
 }
 
-.date-btn {
+.home-btn {
   width: 80px;
   padding: 4px;
-  color: #e9edf5;
+  color: #fff;
   text-align: center;
-  border-radius: 24px;
+  border-radius: 16px;
   cursor: pointer;
   transition: 0.1s;
+  text-decoration: none;
+  font-size: 16px;
+  z-index: 1;
 }
 
-.date-btn:hover {
-  color: #e9edf5;
-  background: #7192bf;
+.home-btn--active {
+  background: $primary-300;
+  box-shadow:
+    inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
+    inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+  pointer-events: none;
 }
 
-.date-btn:nth-child(1):hover ~ svg .date-rect {
+.home-btn:hover {
+  background: rgba(131, 160, 76, 0.4);
+  box-shadow:
+    inset 2px 2px 1px 0 rgba(255, 255, 255, 0.5),
+    inset -1px -1px 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.home-outline {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.home-rect {
+  stroke-dashoffset: 5;
+  stroke-dasharray: 0 0 11.5 40 10.5 40;
+  transition: 0.5s;
+  stroke: #fff;
+}
+
+.home-container:hover .home-outline .home-rect {
+  transition: 999999s;
+  stroke-dashoffset: 1;
+  stroke-dasharray: 0;
+}
+
+.home-btn:nth-child(1):hover ~ svg .home-rect {
   stroke-dashoffset: 0;
   stroke-dasharray: 0 3.1 6 76.3 6 23.7;
 }
 
-.date-btn:nth-child(2):hover ~ svg .date-rect {
+.home-btn:nth-child(2):hover ~ svg .home-rect {
   stroke-dashoffset: 0;
-  stroke-dasharray: 0 14 6 54.5 6 45.5;
+  stroke-dasharray: 0 14.1 6 54.4 6 45.6;
 }
 
-.date-btn:nth-child(3):hover ~ svg .date-rect {
+.home-btn:nth-child(3):hover ~ svg .home-rect {
   stroke-dashoffset: 0;
-  stroke-dasharray: 0 24.7 6 33.1 6 66.9;
+  stroke-dasharray: 0 24.6 6 33.3 6 66.7;
 }
 
-.date-btn:nth-child(4):hover ~ svg .date-rect {
+.home-btn:nth-child(4):hover ~ svg .home-rect {
   stroke-dashoffset: 0;
-  stroke-dasharray: 0 35.4 6 11.7 6 88.3;
+  stroke-dasharray: 0 35.3 6 11.9 6 62.4;
 }
 
-.date-btn:hover ~ .date-outline .date-rect {
+.home-btn:hover ~ svg .home-rect {
   stroke-dashoffset: 0;
   stroke-dasharray: 0 0 8 40 8 40;
   transition: 0.5s !important;
