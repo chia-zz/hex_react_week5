@@ -4,10 +4,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // API
-import { getProducts } from "../../../api/ApiClient";
+import { getProducts, getAllProducts } from "../../../api/ApiClient";
 // 元件
 import LoadingSpinner from "../../../components/LoadingSpinner";
 import Pagination from "../../../components/Pagination";
+import CategoryNav from "../../../components/CategoryNav";
 
 function ProductList() {
   // const navigate = useNavigate();
@@ -16,6 +17,9 @@ function ProductList() {
   const [isLoading, setIsLoading] = useState(false);
   // pagination
   const [pagination, setPagination] = useState({});
+  // category
+  const [categories, setCategories] = useState([]);
+  const [currentCategory, setCurrentCategory] = useState("");
 
   // API
   // 取得商品分類分頁資料
@@ -33,21 +37,36 @@ function ProductList() {
       setIsLoading(false);
     }
   };
+  // 取得產品分類
+  const getCategories = async () => {
+    try {
+      const res = await getAllProducts();
+      console.log("API 回傳分類資料:", res.data);
+      const allProducts = Object.values(res.data.products);
+      const categoryList = [
+        ...new Set(allProducts.map((item) => item.category)),
+      ];
+      setCategories(categoryList);
+    } catch (error) {
+      console.error("取得分類失敗", error);
+    }
+  };
 
   useEffect(() => {
     getData();
+    getCategories();
   }, []);
-
-  // 處理分頁
-  const handlePageChange = (page) => {
-    getData(page);
-  };
 
   return (
     <div className="container p-5">
       {isLoading && <LoadingSpinner />}
       <ToastContainer />
       <h1 className="text-primary-800 mb-4">植感圖鑑</h1>
+      <CategoryNav
+        categories={categories}
+        activeCategory={currentCategory}
+        onChangeCategory={getCategories}
+      />
       <div className="container">
         <div className="row g-3">
           {products.map((item) => (
@@ -91,7 +110,7 @@ function ProductList() {
           ))}
         </div>
         <div className="d-flex justify-content-center mt-4">
-          <Pagination pagination={pagination} changePage={handlePageChange} />
+          <Pagination pagination={pagination} onChangePage={getData} />
         </div>
       </div>
     </div>
