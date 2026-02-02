@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // API
-import { getProducts, getAllProducts } from "../../../api/ApiClient";
+import { getProducts, getAllProducts, addCart } from "../../../api/ApiClient";
 // 元件
 import LoadingSpinner from "../../../components/LoadingSpinner";
 import Pagination from "../../../components/Pagination";
 import CategoryNav from "../../../components/CategoryNav";
 
 function ProductList() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   // loading spinner 設定
   const [isLoading, setIsLoading] = useState(false);
@@ -20,6 +20,8 @@ function ProductList() {
   // category
   const [categories, setCategories] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("");
+  // // 產品 id
+  // const [productId, setProductId] = useState(null);
 
   // API
   // 取得商品分類分頁資料
@@ -51,21 +53,59 @@ function ProductList() {
       console.error("取得分類失敗", error);
     }
   };
+  // 取得單一產品詳情
+  // const getProductIdDetail = async (id) => {
+  //   try {
+  //     const res = await getProductDetail(id);
+  //     console.log("API 回傳ID資料:", res.data);
+  //     setProductId(res.data.product.id);
+  //   } catch (error) {
+  //     console.error("取得ID失敗", error);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
 
   useEffect(() => {
     getData();
     getCategories();
   }, []);
 
+  const handleCategoryChange = (category) => {
+    setCurrentCategory(category);
+    getData(1, category);
+  };
+
+  const handleDetailPage = (id) => {
+    navigate(`/product/${id}`);
+  };
+
+  const handlePageChange = (page) => {
+    getData(page, currentCategory);
+  };
+
+  // 加入購物車(單一數量)
+  const addCartBtn = async (id = "", qty = 1) => {
+    setIsLoading(true);
+    try {
+      const res = await addCart(id, qty);
+      console.log("加入購物車資料:", res.data);
+      toast.success("成功加入購物車！");
+    } catch (error) {
+      toast.error("加入失敗", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="container p-5">
       {isLoading && <LoadingSpinner />}
-      <ToastContainer />
       <h1 className="text-primary-800 mb-4">植感圖鑑</h1>
       <CategoryNav
         categories={categories}
         activeCategory={currentCategory}
-        onChangeCategory={getCategories}
+        onChangeCategory={handleCategoryChange}
       />
       <div className="container">
         <div className="row g-3">
@@ -96,13 +136,21 @@ function ProductList() {
                       </del>
                     </small>
                   </p>
-                  <div>
-                    <a href="#" className="btn btn-primary">
+                  <div className="d-flex justify-content-around gap-2">
+                    <button
+                      type="button"
+                      className="w-100 btn btn-outline-primary"
+                      onClick={() => handleDetailPage(item.id)}
+                    >
                       查看更多
-                    </a>
-                    <a href="#" className="btn btn-primary">
+                    </button>
+                    <button
+                      type="button"
+                      className="w-100 btn btn-outline-primary"
+                      onClick={() => addCartBtn(item.id, 1)}
+                    >
                       加入購物車
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -110,7 +158,7 @@ function ProductList() {
           ))}
         </div>
         <div className="d-flex justify-content-center mt-4">
-          <Pagination pagination={pagination} onChangePage={getData} />
+          <Pagination pagination={pagination} onChangePage={handlePageChange} />
         </div>
       </div>
     </div>

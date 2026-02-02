@@ -52,7 +52,7 @@ const FooterBrand = ({ brand }) => {
 
 function Footer() {
   return (
-    <footer className="container-fluid text-primary-800 fw-medium">
+    <footer className="container-fluid text-primary-700 fw-medium">
       <div className="container py-4">
         <div className="row g-6 mb-7 mb-md-8 d-flex">
           {/* brand + social media 區 */}
@@ -89,7 +89,7 @@ function Footer() {
                 <li key={item.name}>
                   <a
                     href={item.url}
-                    className="text-primary-800"
+                    className="text-primary-700"
                     title={item.name}
                   >
                     <i

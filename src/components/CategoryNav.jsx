@@ -1,4 +1,9 @@
 function CategoryNav({ categories, activeCategory, onChangeCategory }) {
+  const handleChange = (e, category) => {
+    if (e) e.preventDefault();
+    onChangeCategory(category);
+  };
+
   return (
     <div className="mb-4">
       <ul className="nav nav-pills justify-content-center">
@@ -8,23 +13,21 @@ function CategoryNav({ categories, activeCategory, onChangeCategory }) {
             className={`nav-link ${activeCategory === "" ? "active" : ""}`}
             href="#"
             onClick={(e) => {
-              e.preventDefault();
-              onChangeCategory(""); // 傳回空字串代表「全部」
+              handleChange(e, ""); // 代表全部
             }}
           >
             全部
           </a>
         </li>
 
-        {/* 其他 */}
+        {/* 其他分類 */}
         {categories.map((category) => (
           <li className="nav-item" key={category}>
             <a
               className={`nav-link ${activeCategory === category ? "active" : ""}`}
               href="#"
               onClick={(e) => {
-                e.preventDefault();
-                onChangeCategory(category);
+                handleChange(e, category); // 代表該分類
               }}
             >
               {category}

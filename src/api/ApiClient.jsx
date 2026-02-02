@@ -20,7 +20,18 @@ export const getProducts = (page = 1, category = "") => {
   });
 };
 
-// 取得產品詳情
+// 取得單一產品詳情
 export const getProductDetail = (id) => {
   return axios.get(`${apiUrl}/api/${apiPath}/product/${id}`);
+};
+
+// 加入購物車
+export const addCart = (id = "", qty = 1) => {
+  const data = {
+    data: {
+      product_id: id,
+      qty,
+    },
+  };
+  return axios.post(`${apiUrl}/api/${apiPath}/cart`, data);
 };

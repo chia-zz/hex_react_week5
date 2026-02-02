@@ -2,9 +2,8 @@
 import { NavLink } from "react-router-dom";
 
 // swiper
-import { Pagination, A11y, EffectFade, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {} from "swiper/modules";
+import { Pagination, A11y, EffectFade, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
@@ -60,7 +59,7 @@ function Home() {
                 <h2 className="fw-bold">{item.title}</h2>
                 <p className="fs-4 ">{item.subTitle}</p>
                 <NavLink
-                  className="btn border d-inline-block text-primary-50 header__link fw-semibold text-decoration-none"
+                  className="btn btn-outline-primary-600 border d-inline-block text-primary-50 fw-semibold text-decoration-none"
                   to={item.url}
                 >
                   <span className="">{item.link}</span>
