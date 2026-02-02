@@ -74,9 +74,12 @@ function Cart() {
   const clearCart = async () => {
     setIsLoading(true);
     try {
-      await deleteAllCart();
-      toast.success("購物車已清空");
-      getAllCart();
+      const isConfirm = window.confirm("確定要清空購物車嗎？");
+      if (isConfirm) {
+        await deleteAllCart();
+        toast.success("購物車已清空");
+        getAllCart();
+      }
     } catch (error) {
       console.error("清空失敗", error);
       setIsLoading(false);
@@ -98,6 +101,15 @@ function Cart() {
           <div className="text-error text-start fs-4">購物車目前沒有商品</div>
         ) : (
           <div className="row">
+            <div className="col-12 col-md-8 text-end">
+              <button
+                type="button"
+                className="btn btn-error mb-2"
+                onClick={() => clearCart()}
+              >
+                刪除全部
+              </button>
+            </div>
             <div className="col-md-8">
               <table className="table table-striped table-hover align-middle">
                 <thead>
@@ -165,6 +177,43 @@ function Cart() {
 
             <div className="col-md-4">
               <h3>Order Summary</h3>
+              <hr />
+              <div className="d-flex flex-column gap-2">
+                <h5 className="d-flex px-3">
+                  商品小計
+                  <span className="ms-auto">
+                    NT$<span className="fw-bold ms-1">{total}</span>
+                  </span>
+                </h5>
+                <h5 className="d-flex px-3">
+                  運費
+                  <span className="ms-auto">
+                    <span className="text-error fw-bold me-1">
+                      <span className="me-1">NT$</span>0
+                    </span>
+                    /
+                    <small className="ms-1">
+                      <del className="text-muted">
+                        <span className="me-1">NT$</span>
+                        60
+                      </del>
+                    </small>
+                  </span>
+                </h5>
+              </div>
+              <hr />
+              <h3 className="d-flex px-3">
+                商品總計
+                <span className="ms-auto">
+                  NT$<span className="fw-bold ms-1">{finalTotal}</span>
+                </span>
+              </h3>
+              <button
+                type="button"
+                className="mt-3 mx-2 w-100 fs-5 btn btn-primary"
+              >
+                前往結帳
+              </button>
             </div>
           </div>
         )}
