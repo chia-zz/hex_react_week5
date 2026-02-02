@@ -35,3 +35,29 @@ export const addCart = (id = "", qty = 1) => {
   };
   return axios.post(`${apiUrl}/api/${apiPath}/cart`, data);
 };
+
+// 取得購物車內容
+export const getCart = () => {
+  return axios.get(`${apiUrl}/api/${apiPath}/cart`);
+};
+
+// 修改購物車內容
+export const editCart = (cartId, productId, qty) => {
+  const data = {
+    data: {
+      product_id: productId,
+      qty: qty,
+    },
+  };
+  return axios.put(`${apiUrl}/api/${apiPath}/cart/${cartId}`, data);
+};
+
+// 刪除購物車內容
+export const deleteCart = (cartId) => {
+  return axios.delete(`${apiUrl}/api/${apiPath}/cart/${cartId}`);
+};
+
+// 刪除全部購物車
+export const deleteAllCart = () => {
+  return axios.delete(`${apiUrl}/api/${apiPath}/carts`);
+};

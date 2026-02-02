@@ -855,14 +855,14 @@ $table-cell-padding-x-sm: 0.25rem !default;
 
 $table-cell-vertical-align: top !default;
 
-$table-color: var(--#{$prefix}emphasis-color) !default;
-$table-bg: var(--#{$prefix}body-bg) !default;
+$table-color: #615f5d !default;
+$table-bg: #f6f4f1 !default;
 $table-accent-bg: transparent !default;
 
 $table-th-font-weight: null !default;
 
 $table-striped-color: $table-color !default;
-$table-striped-bg-factor: 0.05 !default;
+$table-striped-bg-factor: 0.03 !default;
 $table-striped-bg: rgba(
   var(--#{$prefix}emphasis-color-rgb),
   $table-striped-bg-factor
