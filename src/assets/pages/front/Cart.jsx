@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 // API
 import {
   getCart,
@@ -94,7 +94,9 @@ function Cart() {
     <>
       <div className="container my-3">
         {isLoading && <LoadingSpinner />}
-        <h1 className="text-start mb-4">Your Bag</h1>
+        <h1 className="text-start text-sec-600 mb-4">
+          <i className="bi bi-handbag me-1"></i>Your Bag
+        </h1>
 
         {/* 先判斷購物車裡有沒有東西 */}
         {cartItem.length === 0 ? (
@@ -104,7 +106,7 @@ function Cart() {
             <div className="col-12 col-md-8 text-end">
               <button
                 type="button"
-                className="btn btn-error mb-2"
+                className="btn btn-error mb-3 me-4"
                 onClick={() => clearCart()}
               >
                 刪除全部
@@ -112,7 +114,7 @@ function Cart() {
             </div>
             <div className="col-md-8">
               <table className="table table-striped table-hover align-middle">
-                <thead>
+                <thead className="fs-5">
                   <tr>
                     <th scope="col">Image</th>
                     <th scope="col">Products</th>
@@ -137,7 +139,7 @@ function Cart() {
                       </td>
                       <td>{item.product.title}</td>
                       <td>
-                        <div className="d-flex justify-content-between align-items-center">
+                        <div className="d-flex justify-content-evenly align-items-center">
                           <button
                             className="btn btn-outline-primary border-0"
                             type="button"
@@ -175,7 +177,7 @@ function Cart() {
               </table>
             </div>
 
-            <div className="col-md-4">
+            <div className="col-md-4 text-sec-600">
               <h3>Order Summary</h3>
               <hr />
               <div className="d-flex flex-column gap-2">
